@@ -39,7 +39,7 @@ class Client(object):
             if len(packet_length) < 2:
                 self.stop()
                 continue
-            packet_length = struct.unpack("<h", packet_length)[0] - 2
+            packet_length = struct.unpack("<H", packet_length)[0] - 2
 
             data = self.client.recv(packet_length)
             packno = data[0]
