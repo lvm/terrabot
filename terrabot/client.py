@@ -43,12 +43,13 @@ class Client(object):
             data = self.client.recv(packet_length)
             packno = data[0]
 
+            parser = "Packet" + format(packno, 'x').upper() + "Parser"
             try:
-                parser = "Packet" + format(packno, 'x').upper() + "Parser"
                 packet_class = getattr(packets, parser)
-                packet_class().parse(self.world, self.player, data, self._evman)
             except AttributeError as e:
                 pass
+            else:
+                packet_class().parse(self.world, self.player, data, self._evman)
 
             if packno == 2:
                 self.stop()
