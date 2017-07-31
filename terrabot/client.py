@@ -1,6 +1,7 @@
 import socket
 import struct
 import threading
+import time
 
 from . import packets
 
@@ -54,6 +55,7 @@ class Client(object):
             if packno == 2:
                 self.stop()
                 continue
+            time.sleep(0.01)
 
     def write_packets(self):
         """Write packets from the queue"""
