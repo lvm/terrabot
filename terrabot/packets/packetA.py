@@ -1,4 +1,5 @@
 import zlib
+import logging
 
 from terrabot.data.tile import Tile
 from terrabot.util.tileutil import *
@@ -15,7 +16,11 @@ class PacketAParser(object):
 
         if compressed:
             compressed_data = streamer.remainder()
-            data = zlib.decompress(compressed_data, -zlib.MAX_WBITS)
+            try:
+                data = zlib.decompress(compressed_data, -zlib.MAX_WBITS)
+            except zlib.error:
+                logging.exception('Failed to decompress packet A:')
+                return
             streamer = Streamer(data)
 
         startx = streamer.next_int32()
