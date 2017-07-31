@@ -34,7 +34,7 @@ class TerraBot(object):
 
     def item_owner_changed(self, id, data):
         if self.player.logged_in:
-            self.add_packet(packets.Packet16(data[0], data[1]))
+            self.client.add_packet(packets.Packet16(data[0], data[1]))
 
     def received_player_id(self, event_id, data):
         self.client.add_packet(packets.Packet4(self.player))
