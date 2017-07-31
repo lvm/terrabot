@@ -41,3 +41,7 @@ class Events(enum.Enum):
     # Trigger: A new player joins
     # Data: PlayerID
     NewPlayer = 9
+
+    # Trigger: Server requested a password to login
+    # Data: null
+    PasswordRequested = 10

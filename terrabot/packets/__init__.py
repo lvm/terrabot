@@ -22,6 +22,8 @@ from .packet16 import *
 from .packet17 import *
 from .packet19 import *
 from .packet1B import *
+from .packet25 import *
+from .packet26 import *
 from .packet31 import *
 from .packet39 import *
 from .packet1E import *
