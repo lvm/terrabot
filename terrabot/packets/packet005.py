@@ -4,7 +4,7 @@ from . import packet
 class Packet5(packet.Packet):
 
     def __init__(self, player, slot):
-        super(Packet5, self).__init__(5)
+        super().__init__(5)
         self.add_data(player.playerID)
         self.add_data(slot)
         self.add_structured_data("<h", 0)  # Stack
