@@ -77,7 +77,7 @@ These are some areas that need work:
 -  Placing tiles (!)
 
 For information about the packets, see `this
-link <https://tshock.atlassian.net/wiki/display/TSHOCKPLUGINS/Packet+Documentation>`__.
+link <https://tshock.readme.io/docs/multiplayer-packet-structure>`__.
 
 .. |PyPI version| image:: https://badge.fury.io/py/terrabot.svg
    :target: https://badge.fury.io/py/terrabot
