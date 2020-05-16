@@ -36,13 +36,13 @@ class TerraBot(object):
 
     def item_owner_changed(self, id, data):
         if self.player.logged_in:
-            self.client.add_packet(packets.Packet16(data[0], data[1]))
+            self.client.add_packet(packets.Packet22(data[0], data[1]))
 
     def received_player_id(self, event_id, data):
         self.client.add_packet(packets.Packet4(self.player))
-        self.client.add_packet(packets.Packet10(self.player))
-        self.client.add_packet(packets.Packet2A(self.player))
-        self.client.add_packet(packets.Packet32(self.player))
+        self.client.add_packet(packets.Packet16(self.player))
+        self.client.add_packet(packets.Packet42(self.player))
+        self.client.add_packet(packets.Packet50(self.player))
         for i in range(0, 83):
             self.client.add_packet(packets.Packet5(self.player, i))
         self.client.add_packet(packets.Packet6())
@@ -51,11 +51,11 @@ class TerraBot(object):
         self.client.add_packet(packets.Packet8(self.player, self.world))
 
     def logged_in(self, event, data):
-        self.client.add_packet(packets.PacketC(self.player, self.world))
+        self.client.add_packet(packets.Packet12(self.player, self.world))
 
     def send_password(self, event, data):
         if self.password:
-            self.client.add_packet(packets.Packet26(self.password))
+            self.client.add_packet(packets.Packet38(self.password))
         else:
             print("ERROR: Server needed password to login but none was given!")
             self.stop()
@@ -65,7 +65,7 @@ class TerraBot(object):
             if color:
                 hex_code = "%02x%02x%02x" % color
                 msg = "[c/" + hex_code + ":" + msg + "]"
-            self.client.add_packet(packets.Packet19(self.player, msg))
+            self.client.add_packet(packets.Packet25(self.player, msg))
 
     def get_event_manager(self):
         return self.evman

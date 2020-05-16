@@ -44,7 +44,7 @@ class Client(object):
             data = self.client.recv(packet_length)
             packno = data[0]
 
-            parser = "Packet" + format(packno, "x").upper() + "Parser"
+            parser = f"Packet{packno}Parser"
             try:
                 packet_class = getattr(packets, parser)
             except AttributeError as e:
