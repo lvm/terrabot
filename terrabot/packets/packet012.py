@@ -1,10 +1,10 @@
 from . import packet
 
 
-class PacketC(packet.Packet):
+class Packet12(packet.Packet):
 
     def __init__(self, player, world):
-        super(PacketC, self).__init__(0xC)
+        super(Packet12, self).__init__(12)
         self.add_data(player.playerID)
         self.add_structured_data("<h", world.spawnX)
         self.add_structured_data("<h", world.spawnY)

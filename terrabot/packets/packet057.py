@@ -1,7 +1,7 @@
 from terrabot.util.streamer import Streamer
 
 
-class Packet39Parser(object):
+class Packet57Parser(object):
 
     def parse(self, world, player, data, ev_man):
         streamer = Streamer(data)

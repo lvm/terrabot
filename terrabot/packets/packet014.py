@@ -3,7 +3,7 @@ from terrabot.util.streamer import Streamer
 from terrabot.events.events import Events
 
 
-class PacketEParser(object):
+class Packet14Parser(object):
     def parse(self, world, player, data, ev_man):
 
         # If player is active

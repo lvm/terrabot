@@ -1,10 +1,10 @@
 from . import packet
 
 
-class Packet2A(packet.Packet):
+class Packet42(packet.Packet):
 
     def __init__(self, player):
-        super(Packet2A, self).__init__(0x2A)
+        super(Packet42, self).__init__(42)
         self.add_data(player.playerID)
         self.add_structured_data("<h", player.currMana)
         self.add_structured_data("<h", player.maxMana)

@@ -1,8 +1,8 @@
 from . import packet
 
 
-class Packet26(packet.Packet):
+class Packet38(packet.Packet):
 
     def __init__(self, password):
-        super(Packet26, self).__init__(0x26)
+        super(Packet38, self).__init__(38)
         self.add_data(password, pascal_string=True)

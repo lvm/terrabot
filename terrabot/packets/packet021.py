@@ -3,7 +3,7 @@ from terrabot.events.events import Events
 from terrabot.data.item import Item
 
 
-class Packet15Parser(object):
+class Packet21Parser(object):
 
 	def parse(self, world, player, data, ev_man):
 		streamer = Streamer(data)

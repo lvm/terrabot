@@ -1,9 +1,9 @@
 from . import packet
 
 
-class Packet3D(packet.Packet):
+class Packet61(packet.Packet):
 
 	def __init__(self, player):
-		super(Packet3D, self).__init__(0x3D)
+		super(Packet61, self).__init__(61)
 		self.addData(chr(player.playerID))
 		self.addData(chr(1))

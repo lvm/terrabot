@@ -1,7 +1,7 @@
 import struct
 
 
-class Packet17Parser(object):
+class Packet27Parser(object):
 
 	def parse(self, world, player, data, ev_man):
 		pass

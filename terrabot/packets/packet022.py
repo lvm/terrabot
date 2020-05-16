@@ -3,15 +3,15 @@ from terrabot.events import Events
 from . import packet
 
 
-class Packet16(packet.Packet):
+class Packet22(packet.Packet):
 
 	def __init__(self, item_id, owner_id):
-		super(Packet16, self).__init__(22)
+		super(Packet22, self).__init__(22)
 		self.add_structured_data('<h', item_id)
 		self.add_data(owner_id)
 
 
-class Packet16Parser(object):
+class Packet22Parser(object):
 
 	def parse(self, world, player, data, ev_man):
 		streamer = Streamer(data)

@@ -3,7 +3,7 @@ from terrabot.util.streamer import Streamer
 from terrabot.events.events import Events
 
 
-class Packet19Parser(object):
+class Packet25Parser(object):
 
     def parse(self, world, player, data, ev_man):
         streamer = Streamer(data)
@@ -17,10 +17,10 @@ class Packet19Parser(object):
         ev_man.raise_event(Events.Chat, msg)
 
 
-class Packet19(packet.Packet):
+class Packet25(packet.Packet):
 
     def __init__(self, player, msg=":)"):
-        super(Packet19, self).__init__(0x19)
+        super(Packet25, self).__init__(25)
         self.add_data(player.playerID)
         self.add_data(1)
         self.add_data(1)

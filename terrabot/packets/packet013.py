@@ -1,10 +1,10 @@
 from . import packet
 
 
-class PacketD(packet.Packet):
+class Packet13(packet.Packet):
 
 	def __init__(self, player):
-		super(PacketC, self).__init__(0xD)
+		super(Packet13, self).__init__(13)
 		self.addData(chr(player.playerID))
 		self.addData(chr(0))
 		self.addData(chr(0))
