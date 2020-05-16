@@ -4,19 +4,17 @@ from . import packet
 
 
 class Packet22(packet.Packet):
-
-	def __init__(self, item_id, owner_id):
-		super(Packet22, self).__init__(22)
-		self.add_structured_data('<h', item_id)
-		self.add_data(owner_id)
+    def __init__(self, item_id, owner_id):
+        super(Packet22, self).__init__(22)
+        self.add_structured_data("<h", item_id)
+        self.add_data(owner_id)
 
 
 class Packet22Parser(object):
-
-	def parse(self, world, player, data, ev_man):
-		streamer = Streamer(data)
-		streamer.next_byte()  # Ignore packet number
-		item_id = streamer.next_short()
-		owner_id = streamer.next_byte()
-		world.item_owner_index[item_id] = owner_id
-		ev_man.raise_event(Events.ItemOwnerChanged, (item_id, owner_id))
+    def parse(self, world, player, data, ev_man):
+        streamer = Streamer(data)
+        streamer.next_byte()  # Ignore packet number
+        item_id = streamer.next_short()
+        owner_id = streamer.next_byte()
+        world.item_owner_index[item_id] = owner_id
+        ev_man.raise_event(Events.ItemOwnerChanged, (item_id, owner_id))

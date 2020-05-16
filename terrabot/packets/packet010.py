@@ -19,7 +19,7 @@ class Packet10Parser(object):
             try:
                 data = zlib.decompress(compressed_data, -zlib.MAX_WBITS)
             except zlib.error:
-                logging.exception('Failed to decompress packet A:')
+                logging.exception("Failed to decompress packet A:")
                 return
             streamer = Streamer(data)
 

@@ -26,8 +26,8 @@ class Packet(object):
         # char
         if pascal_string:
             length = len(d)
-            d = bytes(d, 'utf-8')
-            self.data += struct.pack('<b', length)
+            d = bytes(d, "utf-8")
+            self.data += struct.pack("<b", length)
             self.data += d
         else:
             self.data += bytes([d])
@@ -36,6 +36,6 @@ class Packet(object):
         # Adding 3, because the length of the packet (short) and packno
         # (a byte) are also part of the packet
         packet = struct.pack("<h", self._calculate_length() + 3)
-        packet += struct.pack('b', self.packetno)
+        packet += struct.pack("b", self.packetno)
         packet += self.data
         client.send(packet)

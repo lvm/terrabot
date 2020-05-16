@@ -2,7 +2,6 @@ from . import packet
 
 
 class Packet4(packet.Packet):
-
     def __init__(self, player):
         super().__init__(4)
         self.add_data(player.playerID)

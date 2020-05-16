@@ -2,7 +2,6 @@ from terrabot.util.streamer import Streamer
 
 
 class Packet57Parser(object):
-
     def parse(self, world, player, data, ev_man):
         streamer = Streamer(data)
         streamer.next_byte()  # Skip packet number

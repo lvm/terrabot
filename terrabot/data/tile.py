@@ -6,4 +6,4 @@
 #         self.color = color
 import collections
 
-Tile = collections.namedtuple('Tile', 'type active color')
+Tile = collections.namedtuple("Tile", "type active color")

@@ -9,17 +9,17 @@ class Streamer(object):
         self.index = 0
 
     def next_short(self):
-        result = struct.unpack("<h", self.data[self.index: self.index + 2])[0]
+        result = struct.unpack("<h", self.data[self.index : self.index + 2])[0]
         self.index += 2
         return result
 
     def next_u_short(self):
-        result = struct.unpack("<H", self.data[self.index: self.index + 2])[0]
+        result = struct.unpack("<H", self.data[self.index : self.index + 2])[0]
         self.index += 2
         return result
 
     def next_int32(self):
-        result = struct.unpack("<i", self.data[self.index: self.index + 4])[0]
+        result = struct.unpack("<i", self.data[self.index : self.index + 4])[0]
         self.index += 4
         return result
 
@@ -29,9 +29,9 @@ class Streamer(object):
         return result
 
     def next_float(self):
-        result = struct.unpack("<f", self.data[self.index: self.index + 4])[0]
+        result = struct.unpack("<f", self.data[self.index : self.index + 4])[0]
         self.index += 4
         return result
 
     def remainder(self):
-        return self.data[self.index:]
+        return self.data[self.index :]

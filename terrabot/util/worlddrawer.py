@@ -5,8 +5,16 @@ from progressbar import *
 def draw_world(world):
     image = Image.new("RGB", (world.maxX, world.maxY), "white")
     imgdraw = ImageDraw.Draw(image)
-    widgets = ['Percentage: ', Percentage(), ' ', Bar(marker=RotatingMarker()),
-               ' ', ETA(), ' Speed: ', FileTransferSpeed()]
+    widgets = [
+        "Percentage: ",
+        Percentage(),
+        " ",
+        Bar(marker=RotatingMarker()),
+        " ",
+        ETA(),
+        " Speed: ",
+        FileTransferSpeed(),
+    ]
     pbar = ProgressBar(widgets=widgets, maxval=len(world.tiles)).start()
 
     x = 0
@@ -17,7 +25,15 @@ def draw_world(world):
                 if i is None:
                     continue
                 else:
-                    color = "rgb(" + str(i.type) + "," + str(i.type) + "," + str(i.type) + ")"
+                    color = (
+                        "rgb("
+                        + str(i.type)
+                        + ","
+                        + str(i.type)
+                        + ","
+                        + str(i.type)
+                        + ")"
+                    )
                 imgdraw.point((x, y), fill=color)
             except Exception as e:
                 pbar.finish()

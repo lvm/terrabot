@@ -1,5 +1,4 @@
 class Player(object):
-
     def __init__(self, name):
         self.inventory = []
         for i in range(0, 72):
