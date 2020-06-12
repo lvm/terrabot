@@ -25,10 +25,8 @@ class Packet(object):
         # Pascal String: need to add the length using a signed
         # char
         if pascal_string:
-            length = len(d)
-            d = bytes(d, "utf-8")
-            self.data += struct.pack("<b", length)
-            self.data += d
+            self.data += struct.pack("<b", len(d))
+            self.data += d.encode("utf-8")
         else:
             self.data += bytes([d])
 

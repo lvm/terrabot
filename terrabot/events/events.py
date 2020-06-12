@@ -45,3 +45,7 @@ class Events(enum.Enum):
     # Trigger: Server requested a password to login
     # Data: null
     PasswordRequested = 10
+
+    # Trigger: Client UUID
+    # Data: null
+    ClientUUID = 68

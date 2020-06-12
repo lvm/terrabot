@@ -13,6 +13,11 @@ class Packet7Parser(object):
         world.maxY = streamer.next_short()
         world.spawnX = streamer.next_short()
         world.spawnY = streamer.next_short()
+        world.surface = streamer.next_short()
+        world.rocklayer = streamer.next_short()
+        world.worldID = streamer.next_int32()
+        world.name = streamer.next_str()
+        world.mode = streamer.next_byte()
 
         if player.initialized and not player.logged_in:
             player.logged_in = True

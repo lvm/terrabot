@@ -1,3 +1,4 @@
+import string
 import struct
 
 
@@ -26,6 +27,19 @@ class Streamer(object):
     def next_byte(self):
         result = self.data[self.index]
         self.index += 1
+        return result
+
+    def next_str(self):
+        idx = 1
+        result = ""
+        while True:
+            (b,) = struct.unpack("1b", self.data[self.index + idx : self.index + idx + 1])
+            if chr(b) not in string.printable:
+                break
+            result += chr(b)
+            idx += 1
+
+        self.index += idx
         return result
 
     def next_float(self):

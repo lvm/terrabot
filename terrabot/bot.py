@@ -10,17 +10,16 @@ class TerraBot(object):
     """A class that handles basic functions of a terraria bot like movement and login"""
 
     # Defaults to 7777, because that is the default port for the server
-    def __init__(self, ip, port=7777, protocol=194, name="Terrabot", password=""):
+    def __init__(self, ip, port=7777, protocol=230,
+                 name="Terrabot", password="", difficulty=0, uuid=""):
         super(TerraBot, self).__init__()
 
         self.protocol = protocol
 
         self.world = World()
-        self.player = Player(name)
+        self.player = Player(name, difficulty, uuid)
         self.password = password
-
         self.evman = EventManager()
-
         self.client = client.Client(ip, port, self.player, self.world, self.evman)
 
         self.evman.method_on_event(Events.PlayerID, self.received_player_id)
@@ -28,6 +27,7 @@ class TerraBot(object):
         self.evman.method_on_event(Events.Login, self.logged_in)
         self.evman.method_on_event(Events.ItemOwnerChanged, self.item_owner_changed)
         self.evman.method_on_event(Events.PasswordRequested, self.send_password)
+        self.evman.method_on_event(Events.ClientUUID, self.client_uuid)
         # self.event_manager.method_on_event(events.Events.)
 
     def start(self):
@@ -59,6 +59,9 @@ class TerraBot(object):
         else:
             print("ERROR: Server needed password to login but none was given!")
             self.stop()
+
+    def client_uuid(self, event, data):
+        self.client.add_packet(packets.Packet68(self.player))
 
     def message(self, msg, color=None):
         if self.player.logged_in:

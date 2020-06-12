@@ -1,11 +1,11 @@
 class Player(object):
-    def __init__(self, name):
+    def __init__(self, name, difficulty=0, uuid=""):
         self.inventory = []
         for i in range(0, 72):
             self.inventory.append("Dummy Item")
 
         self.playerID = 0
-        self.hairStyle = 0x0
+        self.hairStyle = 0
         self.gender = 1
         self.hairColor = (255, 255, 255)
         self.skinColor = (255, 255, 255)
@@ -14,8 +14,9 @@ class Player(object):
         self.undershirtColor = (255, 255, 255)
         self.pantsColor = (255, 255, 255)
         self.shoeColor = (255, 255, 255)
-        self.difficulty = 0
+        self.difficulty = difficulty
         self.name = name
+        self.uuid = uuid
 
         self.maxHP = 400
         self.currHP = 400

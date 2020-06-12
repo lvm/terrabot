@@ -42,3 +42,4 @@ class Packet4(packet.Packet):
         self.add_data(player.shoeColor[2])
 
         self.add_data(player.difficulty)
+        self.add_data(1)
